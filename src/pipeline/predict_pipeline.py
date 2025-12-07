@@ -5,7 +5,7 @@ from src.utils import load_object
 
 class PredictPipeline:
     def __init__(self):
-        print("PredictPipeline initialized")
+        return self
 
     def predict(self, features):
         try:
