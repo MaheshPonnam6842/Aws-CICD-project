@@ -205,3 +205,12 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Local virtual envs (custom names)
+venv312/
+
+# ML runtime artifacts
+artifacts/
+logs/
+catboost_info/
+mlproject.egg-info/
