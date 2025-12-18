@@ -29,8 +29,24 @@ jobs:
 
       - name: Build and push image
         run: |
+<<<<<<< HEAD
           docker build -t ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest .
           docker push ${{ secrets.AWS_ECR_LOGIN_URI }}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+=======
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+          
+          
+  Continuous-Deployment:
+   needs: build-and-push-ecr-image
+   runs-on: self-hosted
+   steps:
+    - uses: actions/checkout@v4
+>>>>>>> 2c630d7f85a4350524474948d42a0849415d5c54
 
   continuous-deployment:
     name: Continuous Deployment
