@@ -64,9 +64,9 @@ jobs:
           
           
   Continuous-Deployment:
-  needs: build-and-push-ecr-image
-  runs-on: self-hosted
-  steps:
+   needs: build-and-push-ecr-image
+   runs-on: self-hosted
+   steps:
     - uses: actions/checkout@v4
 
     - uses: aws-actions/configure-aws-credentials@v4
