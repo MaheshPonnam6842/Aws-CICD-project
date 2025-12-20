@@ -115,5 +115,5 @@ jobs:
           "$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
  
       - name: Clean previous images and containers 
-         run:| 
+        run: | 
            docker system prune -f
