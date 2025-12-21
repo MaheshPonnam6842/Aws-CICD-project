@@ -30,7 +30,7 @@ def predict_datapoint():
             writing_score = float(request.form.get('writing_score', 0) or 0)
         )
 
-        pred_df = data.get_data_as_data_frame()
+        pred_df = data.get_data_as_dataframe()
         print(pred_df)
 
         # ✅ REUSE LOADED PIPELINE (NO TIMEOUT)
