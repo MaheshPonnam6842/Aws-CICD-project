@@ -1,12 +1,8 @@
-FROM python:3.12-slim-bookworm
-
+FROM python:3.8-slim-buster
 WORKDIR /app
+COPY . /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN apt update -y && apt install awscli -y
 
-COPY . .
-
-EXPOSE 5000
-
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "2"]
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
+CMD ["python3", "app.py"]
