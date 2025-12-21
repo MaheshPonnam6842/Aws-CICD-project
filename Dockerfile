@@ -1,8 +1,15 @@
 FROM python:3.12-slim-bookworm
+
 WORKDIR /app
-COPY . /app
 
-RUN apt update -y && apt install awscli -y
+# Install dependencies first (layer caching)
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 unzip -y && pip install -r requirements.txt
-CMD ["python3", "app.py"]
+# Copy application code
+COPY . .
+
+EXPOSE 5000
+
+# Production server
+CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "2"]
