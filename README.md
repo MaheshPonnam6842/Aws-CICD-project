@@ -32,6 +32,16 @@ AWS_SECRET_ACCESS_KEY=
 
 AWS_REGION = us-east-1
 
-AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+AWS_ECR_LOGIN_URI = 
+ECR_REPOSITORY_NAME = 
 
-ECR_REPOSITORY_NAME = simple-app
+## 🧹 Infrastructure Cleanup & Cost Awareness
+```
+
+The application was successfully deployed and validated using **Docker, AWS ECR, AWS EC2, and GitHub Actions**.
+
+After verifying the complete CI/CD and deployment workflow, the cloud resources were **intentionally decommissioned** to avoid unnecessary ongoing cloud costs.
+
+The entire deployment setup is fully **reproducible** using the provided Dockerfile, GitHub Actions workflow, and documented AWS configuration steps.
+
+This reflects real-world, cost-conscious engineering practices commonly followed in production environments and concludes the end-to-end lifecycle of this project.
